@@ -7,6 +7,14 @@
 		<link media="print" type="text/css" href="/grant/CAP119css/print.css" rel="stylesheet">
 		<link rel="icon" type="image/ico" href="/grant/CAP119/favicon.ico">
 		<title>Civil Air Patrol Squadron 119</title>
+		<?php
+		// blog page
+		$ch = curl_init("https://api.dropinblog.com/v1/html/?b=LFIY3ZVIN1CB6WZXK1D2&c=".$_GET['c']."&p=".$_GET['p']."&page=".$_GET['page']);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$response = curl_exec($ch);
+		curl_close($ch);
+		$dib = json_decode($response);
+		?>
 	</head>
 
 	<body>
@@ -61,7 +69,7 @@
 					<div id="content">
 						<div class="slideshowTop"></div>
 						<div class="slideshow">
-							<img src="/grant/CAP119/images/carousel/aerospace.png" alt="slideshow image" width="1024" height="342" />
+							<img src="/grant/CAP119/images/carousel/news.png" alt="slideshow image" width="1024" height="342" />
 						</div>
 						<div class="slideshowBottom"></div>
 
@@ -86,6 +94,8 @@
 <li><a href="#" title="home">welcome</a></li>
 									</ul>
 								</div>
+
+<?php echo $dib->data->content ?>
 
 							</div>
 						</div>
