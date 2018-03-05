@@ -2,11 +2,19 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link media="screen" type="text/css" href="/grant/CAP119/css/screen.css" rel="stylesheet">
-		<link media="all" type="text/css" href="/grant/CAP119/css/all.css" rel="stylesheet">
-		<link media="print" type="text/css" href="/grant/CAP119css/print.css" rel="stylesheet">
-		<link rel="icon" type="image/ico" href="/grant/CAP119/favicon.ico">
+		<link media="screen" type="text/css" href="css/screen.css" rel="stylesheet">
+		<link media="all" type="text/css" href="css/all.css" rel="stylesheet">
+		<link media="print" type="text/css" href="css/print.css" rel="stylesheet">
+		<link rel="icon" type="image/ico" href="favicon.ico">
 		<title>Civil Air Patrol Squadron 119</title>
+		<?php
+		// blog page
+		$ch = curl_init("https://api.dropinblog.com/v1/html/?b=LFIY3ZVIN1CB6WZXK1D2&c=".$_GET['c']."&p=".$_GET['p']."&page=".$_GET['page']);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$response = curl_exec($ch);
+		curl_close($ch);
+		$dib = json_decode($response);
+		?>
 	</head>
 
 	<body>
@@ -38,12 +46,12 @@
 						</ul>
 					</div>
 					<div id="mainNavigation">
-						<ul>
-							<li><a href="/grant/CAP119/index.html" title="Redstone 119 Squadron Home">Home</a></li>
-							<li><a href="/grant/CAP119/pages/about.html" title="About CAP<">About CAP</a></li>
-							<li><a href="/grant/CAP119/pages/basic.html" title="Basic Knowledge Page<">Basic Knowledge</a></li>
-							<li><a href="/grant/CAP119/pages/calendar.html" title="Calendar<" class="selected">Calendar</a></li>
-							<li><a href="/grant/CAP119/pages/news.html" title="Cap News">CAP News</a></li>
+            <ul>
+							<li><a href="index.html" title="Redstone 119 Squadron Home">Home</a></li>
+							<li><a href="about.html" title="About CAP<">About CAP</a></li>
+							<li><a href="basic.html" title="Basic Knowledge Page<">Basic Knowledge</a></li>
+							<li><a href="calendar.html" title="Calendar<">Calendar</a></li>
+							<li><a href="news.php" title="Cap News" class="selected ">CAP News</a></li>
 						</ul>
 
 						<div class="search">
@@ -61,7 +69,7 @@
 					<div id="content">
 						<div class="slideshowTop"></div>
 						<div class="slideshow">
-							<img src="/grant/CAP119/images/carousel/calender.png" alt="slideshow image" width="1024" height="342" />
+							<img src="/grant/CAP119/images/carousel/news.png" alt="slideshow image" width="1024" height="342" />
 						</div>
 						<div class="slideshowBottom"></div>
 
@@ -71,7 +79,7 @@
 									<li><a target="blank" href="https://www.capnhq.gov/CAP.eServices.Web/Default.aspx?ReturnUrl=%2fpreview%2f" title="E-Services Link"><span class="arrow"></span><span>  E-Services Link</span></a></li>
 									<li><a target="_blank" href="https://www.capmembers.com/cadet_programs/library/learn-to-lead/" title="Learn to Lead E-Books"><span class="arrow"></span><span>Learn to Lead Books</span></a></li>
 									<li><a href="/grant/CAP119/pages/aerospace.html" title="Aerospace Education"><span class="arrow"></span><span>Aerospace Education</span></a></li>
-									<li><a href="pages/emergancy.html" title="Emergancy Services"><span class="arrow"></span><span>Emergancy Services</span></a></li>
+									<li><a href="/grant/CAP119/pages/emergancy.html" title="Emergancy Services"><span class="arrow"></span><span>Emergancy Services</span></a></li>
 									<li><a target="_blank" href="http://www.gocivilairpatrol.com" title="Official CAP Website"><span class="arrow"></span><span>Official CAP Website</span></a></li>
 									<li><a target="_blank" href="https://www.vanguardmil.com/pages/civil-air-patrol-collection" title="Click to go to Vanguard "><span class="arrow"></span><span>Vanguard</span></a></li>
 								</ul>
@@ -86,11 +94,12 @@
 <li><a href="#" title="home">welcome</a></li>
 									</ul>
 								</div>
-								<iframe src="https://calendar.google.com/calendar/embed?src=webmaster%40alwg.cap.gov&ctz=America%2FChicago" style="border: 0" width="730" height="600" frameborder="0" scrolling="no"></iframe>
+
+<?php echo $dib->data->content ?>
+
 							</div>
 						</div>
-						<div class="mainContentBottom">
-						</div>
+						<div class="mainContentBottom"></div>
 					</div>
 					<div class="contentBorder"></div>
 				</div>
