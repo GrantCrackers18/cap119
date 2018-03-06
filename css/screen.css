@@ -324,7 +324,6 @@ body{
 	float:left;
 	width:255px;
 	margin-right:3px;
-	background: url(../images/bg-left-column.jpg) repeat-x;
 	min-height: 570px;
 }
 
@@ -379,7 +378,6 @@ body{
 
 
 .leftColumn ul li a .arrow{
-	background-image:url(../images/ic-arrows.png);
 	background-repeat: no-repeat;
 	width: 4px;
 	height: 6px;
@@ -442,7 +440,8 @@ body{
 }
 
 .mainText{
-	width:100%;
+	text-align: center;
+	width:135%;
 }
 
 /***********************************************************************************************************************************/
