@@ -83,7 +83,7 @@ body{
 	float:left;
 	text-transform: uppercase;
 	color:#f6bf22;
-	font-size: 42px;
+	font-size: 30px;
 	font-family: 'RobotoRegular', Arial, Helvetica, sans-serif;
 	line-height: 43px;
 	margin:49px 0px 0px 25px;
@@ -268,7 +268,7 @@ body{
 /***********************************************************************************************************************************/
 .slideshow{
 	width:1024px;
-	height: 342px;
+	height: 200px;
 	position: relative;
 	overflow: hidden;
 	margin-top:-29px;
